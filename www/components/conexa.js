@@ -13,8 +13,23 @@ $(document).on('click', '#btncadastrar', function(){
   }
 
   $.ajax({
+    //enviando dados via post
     type: "post",
-    url: "https://cadastro-carros-3i2-onoilvp.c9users.io/cadastroCarro3i2.php"    
-  })
+    url: "https://cadastro-carros-3i2-onoilvp.c9users.io/cadastroCarro3i2.php",
+
+    data:parametros,
+
+    success:function(data){
+      $("#marca").val(""),
+      $("#modelo").val(""),
+      $("#ano").val(""),
+      $("#cor").val(""),
+      $("#valor").val("");
+    },
+    error:function(data){
+      navigator.notification.alert("Algo deu errado");
+    }
+
+  });
 
 });
